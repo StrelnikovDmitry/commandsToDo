@@ -29,6 +29,15 @@ void add_element(int* pointer, int value) {
     cursor++;
 }
 
+void delete_element(int* pointer, int index) {
+    if (index >= size) {
+        printf("\033[31m ERROR: delete index out of bounds \033[0m\n");
+    }
+    else {
+        pointer[index] = 0;
+    }
+}
+
 void print_list(int* pointer) {
     for (int i = 0; i < size; i++) {
         printf("%d, ", pointer[i]);
