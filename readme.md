@@ -1,4 +1,5 @@
 # CommandsToDo
+![Icon](gallery/icon.png)
 
 A simple Todo List written in pure C.
 
