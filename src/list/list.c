@@ -17,6 +17,22 @@ int* shrink_list(int* pointer) {
     return realloc(pointer, size*element_byte_size);
 }
 
+void compact(int* pointer, int start) {
+    int write = start;
+
+    for (int read = start; read < size; read++) {
+        if (pointer[read]) {
+            pointer[write] = pointer[read];
+            if (read != write) {
+                pointer[read] = 0;
+            }
+            write++;
+        }
+    }
+
+    if (write < size/2) { shrink_list(pointer); }
+}
+
 void add_element(int* pointer, int value) {
     while(pointer[cursor] != 0) {
         cursor++;
@@ -35,6 +51,7 @@ void delete_element(int* pointer, int index) {
     }
     else {
         pointer[index] = 0;
+        compact(pointer, index);
     }
 }
 
