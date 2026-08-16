@@ -17,11 +17,14 @@ int* shrink_list(int* pointer) {
     return realloc(pointer, size*element_byte_size);
 }
 
-
 void add_element(int* pointer, int value) {
-    if (cursor == size-1) {
+    while(pointer[cursor] != 0) {
+        cursor++;
+    }
+    if (cursor == size) {
         pointer = expand_list(pointer);
     }
+
     pointer[cursor] = value;
     cursor++;
 }
