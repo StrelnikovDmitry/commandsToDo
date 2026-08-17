@@ -1,7 +1,8 @@
 # CommandsToDo
-![Icon](gallery/icon.png)
-
+<img src="/gallery/Icon.png" width="100" height="100"> 
 A simple Todo List written in pure C.
+
+---
 
 >CommandsToDo is a small educational project created to understand how high-level programming language features work internally — especially dynamic arrays and string handling.
 
