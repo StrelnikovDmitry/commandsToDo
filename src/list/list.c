@@ -59,4 +59,5 @@ void print_list(int* pointer) {
     for (int i = 0; i < size; i++) {
         printf("%d, ", pointer[i]);
     }
+    printf("\n");
 }
