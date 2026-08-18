@@ -12,10 +12,11 @@ A simple Todo List written in pure C.
 
 | Feature | Status |
 | :---: | :---: |
-| Basic storage of strings | IN DEVELOPMENT |
-| Adding new tasks | IN DEVELOPMENT |
-| Removing existing tasks | IN DEVELOPMENT |
-| Task editing | IN DEVELOPMENT |
+| Basic storage of strings | PARTLY DONE |
+| Adding new tasks | PARTLY DONE |
+| Removing existing tasks | PARTLY DONE |
+| Task editing | PARTLY DONE |
+| String structure as internal dynamic array | IN DEVELOPMENT |
 | Saving tasks to files | IN DEVELOPMENT |
 | Dynamic resizing of internal arrays | IN DEVELOPMENT |
 
