@@ -61,5 +61,4 @@ void print_list(struct String* pointer) {
     for (int i = 0; i < size; i++) {
         print(pointer[i]);
     }
-    printf("\n");
 }
