@@ -1,11 +1,11 @@
 #ifndef LIST_FUNCTIONS
 #define LIST_FUNCTIONS
 
-int* create_list(int basic_size);
-int* expand_list(int* pointer);
-int* shrink_list(int* pointer);
-void print_list(int* pointer);
-void add_element(int* pointer, int value);
-void delete_element(int* pointer, int index);
+struct String* create_list(int basic_size);
+struct String* expand_list(struct String* pointer);
+struct String* shrink_list(struct String* pointer);
+void print_list(struct String* pointer);
+void add_element(struct String* pointer, struct String value);
+void delete_element(struct String* pointer, int index);
 
 #endif
