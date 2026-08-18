@@ -1,30 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list_properties.h"
+#include "../string_pairs/string.h"
+#include "../string_pairs/string_operations.h"
 
-int* create_list(int basic_size) {
+struct String* create_list(int basic_size) {
     size = basic_size;
     return malloc(basic_size*element_byte_size);
 }
 
-int* expand_list(int* pointer) {
+struct String* expand_list(struct String* pointer) {
     size *= 2;
     return realloc(pointer, size*element_byte_size);
 }
 
-int* shrink_list(int* pointer) {
+struct String* shrink_list(struct String* pointer) {
     size /= 2;
     return realloc(pointer, size*element_byte_size);
 }
 
-void compact(int* pointer, int start) {
+void compact(struct String* pointer, int start) {
     int write = start;
 
     for (int read = start; read < size; read++) {
-        if (pointer[read]) {
+        if (!is_blank(pointer[read])) {
             pointer[write] = pointer[read];
             if (read != write) {
-                pointer[read] = 0;
+                pointer[read] = create_string();
             }
             write++;
         }
@@ -33,8 +35,8 @@ void compact(int* pointer, int start) {
     if (write < size/2) { shrink_list(pointer); }
 }
 
-void add_element(int* pointer, int value) {
-    while(pointer[cursor] != 0) {
+void add_element(struct String* pointer, struct String value) {
+    while(!is_blank(pointer[cursor])) {
         cursor++;
     }
     if (cursor == size) {
@@ -45,19 +47,19 @@ void add_element(int* pointer, int value) {
     cursor++;
 }
 
-void delete_element(int* pointer, int index) {
+void delete_element(struct String* pointer, int index) {
     if (index >= size) {
         printf("\033[31m ERROR: delete index out of bounds \033[0m\n");
     }
     else {
-        pointer[index] = 0;
+        pointer[index] = create_string();
         compact(pointer, index);
     }
 }
 
-void print_list(int* pointer) {
+void print_list(struct String* pointer) {
     for (int i = 0; i < size; i++) {
-        printf("%d, ", pointer[i]);
+        print(pointer[i]);
     }
     printf("\n");
 }
