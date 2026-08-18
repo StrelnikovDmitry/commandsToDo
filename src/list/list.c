@@ -29,7 +29,7 @@ void compact(int* pointer, int start) {
             write++;
         }
     }
-
+    cursor = write + 1;
     if (write < size/2) { shrink_list(pointer); }
 }
 
